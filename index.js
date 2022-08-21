@@ -27,7 +27,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Home");
+  res.send({webapp: "https://assign-mentor-35.netlify.app/home"});
 });
 
 app.use("/students", studentRouter);

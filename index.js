@@ -1,9 +1,9 @@
-import express from "express";
-import { MongoClient } from "mongodb";
-import { mentorRouter } from "./routes/Mentor.js";
-import { studentRouter } from "./routes/Student.js";
-import cors from "cors";
-import dotenv from "dotenv"
+import express from 'express';
+import { MongoClient } from 'mongodb';
+import { mentorRouter } from './routes/Mentor.js';
+import { studentRouter } from './routes/Student.js';
+import cors from 'cors';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -14,7 +14,7 @@ const MONGO_CONNECT = process.env.MONGO_CONNECT;
 async function createConnection() {
   const client = new MongoClient(MONGO_CONNECT);
   await client.connect();
-  console.log("Connected to Mongo");
+  console.log('Connected to Mongo');
   return client;
 }
 
@@ -26,11 +26,11 @@ app.use(cors());
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send({webapp: "https://assign-mentor-35.netlify.app/home"});
+app.get('/', (req, res) => {
+  res.send({ webapp: '' });
 });
 
-app.use("/students", studentRouter);
-app.use("/mentors", mentorRouter);
+app.use('/students', studentRouter);
+app.use('/mentors', mentorRouter);
 
 app.listen(PORT, () => console.log(`App has started in ${PORT}`));

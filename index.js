@@ -22,7 +22,9 @@ export const client = await createConnection();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://assign-mentor-mern.netlify.app/'
+}));
 
 app.use(express.json());
 

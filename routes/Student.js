@@ -23,7 +23,7 @@ router.get("/unassigned", async (req, res) => {
     .find({})
     .toArray();
 
-    const final = result.filter(std=> !std.mentor_id || std.mentor_id === "")
+    const final = result.filter(std=> !std.mentor)
 
   res.send(final);
 });
